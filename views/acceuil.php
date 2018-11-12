@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 
 <html>
-	<head>
-		<title>Chat2fouMalade</title>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" href="src/css/style.css" />
+<head>
+	<title>Chat2fouMalade</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="src/css/style.css" />
 
-		<script type="text/javascript" src="lib/js/jquery.js"></script>
-		<script type="text/javascript" src="lib/js/bootstrap.js"></script>
+	<script type="text/javascript" src="lib/js/jquery.js"></script>
+	<script type="text/javascript" src="lib/js/bootstrap.js"></script>
 
-	</head>
-	<body>
-
+</head>
+<body>
 	<div class="row">
 		<div class="col-md-2"></div>
 		<div class="col-md-8 text-center">
@@ -20,12 +19,21 @@
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#inscriptionModal">
 			  Inscription
 			</button>
+
 		</div>
 		<div class="col-md-2"></div>
 	</div>
-
-
-	<!-- Modal -->
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8 text-center">
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+			  Connexion
+			</button>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	<?php echo $erreurConnectionMsg ?>
 	<div class="modal fade" id="inscriptionModal" tabindex="-1" role="dialog" aria-labelledby="inscriptionModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
@@ -35,9 +43,8 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
-	      <form action="index.php" method="GET">
+	      <form action="index.php" method="POST">
 	      <div class="modal-body">
-	        
 					<div class="formu">
 						<label for="pseudo">Pseudo</label>
 					<input class="form-control" type="text" id="pseudo" name="pseudo" placeholder="Ici ton pseudo vilain">
@@ -53,19 +60,6 @@
 	    </div>
 	  </div>
 	</div>
-
-
-	<div class="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8 text-center">
-			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-			  Connexion
-			</button>
-		</div>
-		<div class="col-md-2"></div>
-	</div>
-
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
@@ -99,5 +93,5 @@
 	    </div>
 	  </div>
 	</div>	
-		</body>	
+</body>	
 </html>
