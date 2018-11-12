@@ -6,10 +6,24 @@ require('models/model.php');
 
 $erreurConnectionMsg = "";
 if (isset($_POST['connexionEmail']) AND isset($_POST['connexionPwd'])) {
-	$req = insertUser($_POST['connexionEmail'], $_POST['connexionPwd']);
+
+
+	echo $_POST['connexionEmail'];
+
+
+	$req = getUser($_POST['connexionEmail']);
+ 	
+
  	$resultats = $req->fetch();
- 	$correctpass = ($_POST['connexionPwd'] == $resultats['mdp']);
+
+
+ 	echo $_POST['connexionPwd'];
+echo "ffff";
+ 	echo $resultats['password'];
+ 	$correctpass = ($_POST['connexionPwd'] == $resultats['password']);
 	if ($correctpass) {
+		echo "test";
+		$erreurConnectionMsg = "";
 		$_SESSION['ID']=$resultats['id'];
 		$_SESSION['pseudo']=$resultats['pseudo'];
 		header('Location: pagechat.php') ;

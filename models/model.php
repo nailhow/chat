@@ -1,16 +1,30 @@
 <?php
 	
-	
+
+
+
+function getUser($pseudo) {
+	$bdd = co();
+	$req = $bdd->prepare('
+ 		SELECT *
+ 		FROM utilisateur;
+ 		WHERE pseudo = :pseudo
+ 	');
+ 	$req->bindParam(':pseudo', $pseudo);
+ 	$req->execute();
+	return $req;
+}
 
 function insertUser($pseudo,$mdp) {
 	$bdd = co();
- 	$req = $bdd->prepare('INSERT INTO utilisateur (id, pseudo, password) 
- 						  VALUES (NULL, :pseudo, :mdp);');
+ 	$req = $bdd->prepare('
+ 		INSERT INTO utilisateur (id, pseudo, password) 
+ 		VALUES (NULL, :pseudo, :mdp);
+ 	');
  	$req->bindParam(':pseudo', $pseudo);
  	$req->bindParam(':mdp', $mdp);
  	$req->execute();
 	return $req;
-
 }
 
 
